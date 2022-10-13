@@ -1,0 +1,65 @@
+**React Components 
+
+Component'ler bağımsız ve yeniden kullanılabilir kod parçalarıdır. JavaScript işlevleriyle aynı amaca hizmet ederler, 
+ancak yalıtılmış olarak çalışırlar ve bir render() işlevi aracılığıyla HTML'yi döndürürler.
+
+Basite indirgemek gerekirse React Component‘leri kullanıcı arayüzünü şekillendiren, 
+belirli görevleri olan, class veya fonksiyon olarak tanımlanmış, 
+geriye react elementleri döndüren, opsiyonel olarak parametrealan yapı taşlarıdır.
+
+**React Class Components 
+
+React kütüphanesi içerisindeki Component class‘ından extend olan javascript class‘ları olarak tanımlayabiliriz. 
+
+**LifeCycle Methodlar Nelerdir?
+
+Bir bileşen her oluşturma işleminde “Yaşam Döngüsü (lifecycle)” olarak adlandırılan temel adımlardan geçer.
+- Mounting – Bağlama
+- Updating – Güncelleme
+- Unmouting – Ayırma
+
+    #Mount
+
+        React bir bileşenin örneği oluşturup, onu DOM’a eklediğinde (mount), aşağıdaki metotlar çağrılır:
+
+        - constructor() : Yapıcı metot bileşen oluşturulurken kullanılır.
+        - getDerivedStateFromProps(): render metodunu çağırmadan hemen önce hem ilk mount işleminde hem de 
+          sonraki güncellemelerde (updating) çağrılır. Durumu güncellemek için bir nesneyi, hiçbir şeyi güncellemek için
+          ise null değerini döndürmelidir.
+        - render(): Görüntünün oluşturulduğu aşamadır. Reach elementleri (JSX), diziler, alt DOM ağaşları, 
+          DOM üzerindeki metinler ve sayılar bu aşamada görsel bir forma çevrilir. Hem mount hem de güncelleme aşamalarını içerir.
+        - componentDidMount(): Bileşen bağlanmıştır ve burada yaşam döngüsü devam eder. Çünkü bileşen güncellenebilir.
+    
+    #Update
+
+        Herhangi bir nedenden ötürü bir bileşenin props veya state değerleri değiştirilirse, bileşenin güncellenmesi gerçekleştirilir. 
+        Bununla birlikte, bu durum aşağıdaki metotların çağrılmasına neden olan bileşenin yeniden işlenmesi gerektiği anlamına gelir.
+
+        - getDerivedStateFromProps()
+        - shouldComponentUpdate(): Bileşen güncellemesi
+        - getSnapshotBeforeUpdate(): Render aşamasındaki çıktıdan hemen sonraki kısımdır. 
+          Bileşenleriniz değimeden önce DOM’un bazı bilgiler almasını sağlar. Örneğin bir kaydırma işleminde kaydırma konumu bu aşamada alınır.
+        - render() : Tekrar görüntü oluşturulacak
+        - componentDidUpdate(): Bileşen güncellendi
+    
+    #Unmount 
+     
+        Bir noktada bileşenimizin yaşam döngüsü sonlanacak ve bu aşamadan sonra render olmayacaktır. 
+        Bu aşamaya unmounting denir ve aşağıdaki metot kullanılabilir:
+
+        - componentWillUnmount: Bileşenin yaşam döngüsü bitmeden önceki son istekleri için bir metot
+
+**Functional Components 
+
+React functional components modern react uygulamalarında kullanılan en yaygın component oluşturma metodu olup; 
+bu componentler özünde sadece javascript fonksiyonudur ve return değeri olarak class-based componentler gibi JSX ifadeler döndürür. 
+React’ta functional component oluştururken dikkat etmemiz gereken bir diğer durumda;
+render metoduna gerek kalmaksızın sadece return işlemi ile JSX ifade döndürmesidir.
+
+**Neden Functional Components?
+
+– Yazması, okunması ve test edilmesi kolaydır.
+– Daha az kod yazmanızı sağlar.
+– Daha kolay pratik yapmanızı sağlar.
+– Performans açısından daha verimlidir.
+
