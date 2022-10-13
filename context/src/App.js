@@ -9,12 +9,10 @@ import { useTheme } from "./Context/ThemeContext";
 function App() {
   const { theme, toggleTheme } = useTheme();
   return (
-    <div className="App">
       <div className={theme}>
-        <TopNavbar></TopNavbar>
-        <ContentCard></ContentCard>
+        <TopNavbar/>
+        <ContentCard/>
       </div>
-    </div>
   );
 }
 
